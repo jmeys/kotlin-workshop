@@ -1,0 +1,1216 @@
+<!doctype html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
+		<link rel="stylesheet" href="css/ordina.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+<body>
+<div class="reveal">
+	<div >
+		<div id="header">
+			<div id="header-left"></div>
+			<div id="header-right">
+				<img src="img/jworks-logo.png" style="width:125px; height:auto"/>
+			</div>
+		</div>
+	</div>
+
+	<div class="slides">
+
+		<section>
+			<h1>Kotlin</h1>
+					<h3>The silver bullet to Java?</h3>
+
+				</section>
+
+		<section>
+			<h2>Thanks Yannick!</h2>
+			<img src="img/yannick.jpg" alt="">
+		</section>
+
+				<section>
+					<h2>Hello World</h2>
+
+					<br><br><iframe class="zoom-in" style="height: 160px;" data-src="https://pl.kotl.in/H1l4urVP4"></iframe>
+				</section>
+
+		<!-- Introduction -->
+		<section>
+			<section data-background="#DF6F0C">
+				<h2 style="color: #fff;">Introduction</h2>
+			</section>
+
+			<section>
+				<h2>Goal of this presentation</h2>
+				<p class="fragment fade-up">What does Kotlin have to offer me?</p>
+				<p class="fragment fade-up">Why should I use it?</p>
+				<p class="fragment fade-up">Get you hyped to check out Kotlin! :-)</p>
+			</section>
+
+			<section>
+				<img src="img/kotlin-island.png"/>
+				<aside class="notes">
+					<p>Island next to St. Petersburg</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>What is Kotlin?</h2>
+				<p class="fragment fade-up">Statically typed programming language</p>
+				<p class="fragment fade-up">Developed by JetBrains</p>
+				<p class="fragment fade-up">Compiles to JVM bytecode or JavaScript</p>
+				<p class="fragment fade-up">Access to all existing Java frameworks and libraries</p>
+			</section>
+
+			<section>
+				<h2>A little bit of history...</h2>
+				<div class="fragment fade-up">
+					<p>July 2011: JetBrains unveiled Project Kotlin</p>
+					<p>February 2012: Open sourced under Apache 2 license</p>
+					<p>February 15, 2016: Release of v1.0</p>
+				</div>
+				<p class="fragment fade-up">Google I/O 2017: Kotlin official language for Android</p>
+				<p class="fragment fade-up">March 1, 2017: <a href="https://kotlinlang.org/docs/reference/whatsnew11.html" target="_blank">v1.1</a> released</p>
+				<p class="fragment fade-up">November 28, 2017: <a href="https://kotlinlang.org/docs/reference/whatsnew12.html" target="_blank">v1.2</a> released</p>
+				<p class="fragment fade-up">October 29, 2018 <a href="https://kotlinlang.org/docs/reference/whatsnew13.html" target="_blank">v1.3</a> released</p>
+			</section>
+
+			<section>
+				<img src="img/kotlin-used-by.png"/>
+			</section>
+
+			<section>
+				<h2>Kotlin aims to be...</h2>
+				<p class="fragment fade-up">Object-oriented language with functions as first class citizens</p>
+				<p class="fragment fade-up">Readable, concise and expressive</p>
+				<p class="fragment fade-up">Safety through null-types and immutability</p>
+				<p class="fragment fade-up">Strong focus on interoperability with Java</p>
+
+				<aside class="notes">
+					<p>Safer code by promoting immutability and a functional approach</p>
+				</aside>
+			</section>
+
+			<!--<section>-->
+				<!--<h2>Compiling and running Kotlin code</h2>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--$ kotlinc Hello.kt -include-runtime -d hello.jar-->
+<!--$ java -classpath hello.jar HelloKt</code></pre>-->
+				<!--</div>-->
+				<!--<p class="fragment fade-up">-->
+					<!--Or...-->
+				<!--</p>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--$ kotlinc Hello.kt -d classes-->
+<!--$ kotlin -classpath classes HelloKt</code></pre>-->
+				<!--</div>-->
+
+				<!--<aside class="notes">-->
+					<!--<p><code>-include-runtime</code> includes the Kotlin runtime library,-->
+						<!--making the resulting .jar file self-contained and runnable</p>-->
+				<!--</aside>-->
+			<!--</section>-->
+
+			<section>
+				<h2>Kotlin REPL</h2>
+				<pre><code class="kotlin" data-noescape data-trim>
+$ kotlinc
+<span class="fragment fade-up">Welcome to Kotlin version 1.2.0 (JRE 1.8.0_144-b01)
+Type :help for help, :quit for quit
+>>></span><span class="fragment fade-up"> println("hello world!")</span>
+<span class="fragment fade-up">hello world!</span></code></pre>
+			</section>
+
+			<section>
+				<h2>Kotlin scripts</h2>
+				<p class="fragment fade-up">
+					A script is a Kotlin source file (<code>.kts</code>) with top level executable code
+				</p>
+				<div class="fragment fade-up">
+					<div class="filename">doStuff.kts</div>
+					<pre><code class="kotlin" data-noescape data-trim>
+println("Doing stuff...")</code></pre>
+				</div>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+$ kotlinc -script doStuff.kts
+ Doing stuff...</code></pre>
+				</div>
+			</section>
+		</section>
+
+		<!-- Syntax -->
+		<section>
+			<section data-background="#DF6F0C">
+				<h2 style="color: #fff;">Syntax</h2>
+			</section>
+
+			<section>
+				<h2>Packages</h2>
+				<p class="fragment fade-up">
+					Should be at the top of the source file
+				</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+<span class="fragment fade-up">package be.ordina.jworks</span>
+
+fun main(args: Array&lt;String&gt;) {
+    println("Hello World!")
+}</code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Functions</h2>
+				<img class="fragment fade-up" src="img/fun.jpg" style="transform: scale(.8)"/>
+				<img class="fragment fade-up" src="img/fun.jpg" style="transform: scale(.8)"/>
+				<img class="fragment fade-up" src="img/fun.jpg" style="transform: scale(.8)"/>
+				<div class="fragment fade-up">
+					<br><br><iframe class="zoom-in" style="height: 240px;" data-src="https://pl.kotl.in/rJJ4rlzKE"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h2>Expression body and inferred return type</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+fun sum(a: Int, b: Int) = a + b</code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>No meaningful value being returned</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+fun sayHello(name: String)<span class="fragment fade-out">: Unit</span> {
+    println("Hi, $name")
+}</code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Variables</h2>
+				<p class="fragment fade-up">
+					Value: immutable
+				</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+val a: Int = 1
+<span class="fragment fade-up">a = 2 <span class="fragment fade-up">// ❌ compiler error</span></span></code></pre>
+				</div>
+				<p class="fragment fade-up">
+					Variable: mutable
+				</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+var a: Int = 5
+<span class="fragment fade-up">x += 1 <span class="fragment fade-up">// ✅</span></span></code></pre>
+				</div>
+				<p class="fragment fade-up">
+					<u>Prefer <code>val</code> over <code>var</code></u>
+				</p>
+			</section>
+
+			<section>
+				<h2>Type inference</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+val a = 1 <span class="fragment fade-up">// Int</span>
+var x = "hi" <span class="fragment fade-up">// String</span></code></pre>
+				</div>
+				<!--<div class="fragment fade-up">-->
+					<!--<br><br><br><iframe class="zoom-in" style="height: 240px;" data-src="https://pl.kotl.in/BJnpIkzF4"></iframe>-->
+				<!--</div>-->
+			</section>
+
+			<section>
+				<h2>Lazy variables</h2>
+				<div class="fragment fade-up">
+				<br><br><br><br><iframe class="zoom-in" style="height: 360px;" data-src="https://pl.kotl.in/r1mY3JMKV"></iframe>
+				</div>
+				<p class="fragment fade-up">
+					Only initialised when it's used
+				</p>
+			</section>
+
+			<section>
+				<h2>String interpolation</h2>
+				<p class="fragment fade-up">
+					Define <code>String</code> templates
+				</p>
+				<div class="fragment fade-up">
+					<br><br><br><br><iframe class="zoom-in" style="height: 360px; width: 400px;" data-src="https://pl.kotl.in/Sy6psJfK4"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h2>Multi-line String</h2>
+				<div class="fragment fade-up">
+					<br><br><br><br><iframe class="zoom-in" style="height: 360px; width: 400px;" data-src="https://pl.kotl.in/SkTL6yftV"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h2>Comments</h2>
+				<p class="fragment fade-up">
+					Same as in Java
+				</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+// This is an end-of-line comment
+
+<span class="fragment fade-up">/* This is a block comment
+    on multiple lines. */</span></code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>If expression</h2>
+				<div class="fragment fade-up">
+					<br><br><br><br><iframe class="zoom-in" style="height: 360px; width: 400px;" data-src="https://pl.kotl.in/ByIPA1zt4"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h2>Nullable values</h2>
+				<p class="fragment fade-up">
+					By default everything is non-nullable
+				</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+val value: String = null <span class="fragment fade-up">// ❌ compiler error</span></code></pre>
+				</div>
+
+				<aside class="notes">
+					<p>Everything is an object in Kotlin</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>Nullable is part of the type</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+val value: String? = null <span class="fragment fade-up">// ✅</span></code></pre>
+				</div>
+				<p class="fragment fade-up">
+					Protects you from mistakenly operating on nullable types
+				</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+val person = findPerson() <span class="fragment fade-up">// Person?</span>
+<span class="fragment fade-up">println(person.name) <span class="fragment fade-up">// ❌ compiler error</span></span></code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Dealing with nullability</h2>
+				<p class="fragment fade-up">
+					Check for null or use safe call operator
+				</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+// checking for null
+val person = findPerson() <span class="fragment fade-up">// Person?</span>
+if (person != null) { <span class="fragment fade-up">// cast to non-nullable after null check</span>
+    println(person.name)
+}</code></pre>
+				</div>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+// safe call operator
+println(person?.name <span class="fragment fade-up">?: "Unknown"</span>)</code></pre>
+				</div>
+				<img class="fragment fade-up" src="img/elvis.png" style="float:right; position: absolute;top: 50%;left: 50%; transform: scale(2)"/>
+			</section>
+
+			<section>
+				<h2>Can't I just skip all that?</h2>
+				<p class="fragment fade-up">
+					If you’re really a fan of NPEs...
+				</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+val person = findPerson() <span class="fragment fade-up">// Person?</span>
+<span class="fragment fade-up">println(person!!.name)</span></code></pre>
+				</div>
+				<img class="fragment fade-up" src="img/explosion.png" style="float:right; position: absolute;top: 50%;left: 50%; transform: scale(2)"/>
+			</section>
+
+			<section>
+				<h2>Type checks and automatic casts</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+fun getStringLength(obj: Any): Int? {
+    if (obj is String) {<span class="fragment fade-up"> // Automatically cast to `String`</span>
+        return obj.length
+    }
+    return null
+}</code></pre>
+				</div>
+
+				<aside class="notes">
+					<p><code>is</code> is similar to <code>instanceof</code> in Java</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>For loop</h2>
+				<div class="fragment fade-up">
+					<br><br><br><br><iframe class="zoom-in" style="height: 360px; width: 400px;" data-src="https://pl.kotl.in/SJ5shxfFV"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h2>Range</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+for (x in 1..5) {
+    println(x) <span class="fragment fade-up">// 1, 2, 3, 4, 5</span>
+}
+<span class="fragment fade-up">
+for (x in 1 until 5) {
+    println(x) <span class="fragment fade-up">// 1, 2, 3, 4</span>
+}</span>
+<span class="fragment fade-up">
+for (x in 'A'..'D') {
+    println(x) <span class="fragment fade-up">// A, B, C, D</span>
+}</span></code></pre>
+				</div>
+
+				<aside class="notes">
+					<p>Inclusive vs exclusive</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>Progression</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+for (x in 1..10 step 2) {
+    println(x)<span class="fragment fade-up"> // 1, 3, 5, 7, 9</span>
+}
+<span class="fragment fade-up">
+for (x in 9 downTo 0 step 3) {
+    println(x)<span class="fragment fade-up"> // 9, 6, 3, 0</span>
+}</span></code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>While loop</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+val cars = listOf("BMW", "Mercedes", "Audi")
+var index = 0
+while (index < cars.size) {
+    println("Car at $index is ${cars[index]}")
+    index++
+}</code></pre>
+				</div>
+
+				<aside class="notes">
+					<p>Used less as it's very imperative</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>When expression</h2>
+				<p class="fragment fade-up">
+					Switch statement on steroids
+				</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+fun describe(obj: Any) = when (obj) {
+    <span class="fragment fade-up">0, 1 -> "Zero or one"</span>
+    <span class="fragment fade-up">in 5..10 -> "In the range of five to ten"</span>
+    <span class="fragment fade-up">"Hello" -> "Greeting"</span>
+    <span class="fragment fade-up">is Person -> "Hi $obj.name"</span>
+    <span class="fragment fade-up">!is String -> "Not a string"</span>
+    <span class="fragment fade-up">else -> "Unknown"</span>
+}</code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Collections</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+val list = listOf(1, 2, 3)
+val newList = list + 4
+
+<span class="fragment fade-up">val mutableList = mutableListOf(1, 2)
+mutableList += 3</span>
+
+<span class="fragment fade-up">val map = mapOf(1 to "foo", 2 to "bar")
+println(map[2]) // "bar" 
+val mutableMap = mutableMapOf(1 to "foo")</span>
+
+<span class="fragment fade-up">mutableMap[2] = "bar"</span></code></pre>
+				</div>
+			</section>
+		</section>
+
+		<!-- Classes -->
+		<section>
+			<section data-background="#DF6F0C">
+				<h2 style="color: #fff;">Classes and creating instances</h2>
+			</section>
+
+			<section>
+				<h2>Visibility modifiers</h2>
+				<table>
+					<tr>
+						<th>Modifier</th>
+						<th>Class Member</th>
+						<th>Top-level declaration</th>
+					</tr>
+					<tr>
+						<td><code>public</code> (default)</td>
+						<td>Visible everywhere</td>
+						<td>Visible everywhere</td>
+					</tr>
+					<tr>
+						<td><code>internal 🆕</code></td>
+						<td>Visible in a module</td>
+						<td>Visible in a module</td>
+					</tr>
+					<tr>
+						<td><code>protected</code></td>
+						<td>Visible in subclasses</td>
+						<td>-</td>
+
+					</tr>
+					<tr>
+						<td><code>private</code></td>
+						<td>Visible in a class</td>
+						<td>Visible in a file</td>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h2>Constructor</h2>
+				<div class="fragment fade-up">
+					<br><br><br><br><iframe class="zoom-in" style="height: 260px; width: 400px;" data-src="https://pl.kotl.in/r1isUbzFN"></iframe>
+				</div>
+				<p class="fragment fade-up">Creating an instance</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+val yannick = Person("Yannick")</code></pre>
+				</div>
+
+				<aside class="notes">
+					<p>Note that there is no <code>new</code></p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>More concise</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+class Person(val name: String)</code></pre>
+				</div>
+				<p class="fragment fade-up">val/var on parameter creates a property</p>
+				<p class="fragment fade-up">val -> read-only property (field + getter)</p>
+				<p class="fragment fade-up">var -> mutable property (field + getter/setter)</p>
+			</section>
+
+			<section>
+				<h2>Multiple constructors</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+class Person(val name: String) {
+    <span class="fragment fade-up">constructor(name: String, title: String)
+            : this("$title $name")</span>
+}
+<span class="fragment fade-up">val coolDude = Person("Yannick", "Mr.")</span>
+<span class="fragment fade-up">println(coolDude.name) // Mr. Yannick</span></code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Property without backing field</h2>
+				<div class="fragment fade-up">
+					<br><br><br><br><iframe class="zoom-in" style="height: 260px; width: 400px;" data-src="https://pl.kotl.in/ByNGBzztE"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h2>Accessing the field inside accessors</h2>
+				<div class="fragment fade-up">
+					<br><br><br><iframe class="zoom-in" style="height: 260px; width: 400px;" data-src="https://pl.kotl.in/SJotIGGKN"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h2>Default and named arguments</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+class Person(val firstName: String = "foo",
+             val lastName: String)
+<span class="fragment fade-up">val p = Person(lastName = "Snow")</span></code></pre>
+				</div>
+				<p class="fragment fade-up">Useful to avoid having to overload constructors</p>
+			</section>
+
+			<section>
+				<h2>Operator Overloading</h2>
+				<div class="fragment fade-up">
+					<br><br><br><iframe class="zoom-in" style="height: 260px; width: 460px;" data-src="https://pl.kotl.in/HyEdCPXKN"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h2>Extension functions</h2>
+				<p class="fragment fade-up">Extend a class with new functionality without having to inherit from the class</p>
+				<div class="fragment fade-up">
+					<br><br><br><iframe class="zoom-in" style="height: 240px; width: 440px;" data-src="https://pl.kotl.in/Hy0sI7MFV"></iframe>
+				</div>
+				<p class="fragment fade-up">Resolved statically</p>
+				<p class="fragment fade-up">Class’ properties and functions are accessible</p>
+			</section>
+
+			<section>
+				<h2>Infix notation</h2>
+				<p class="fragment fade-up">Syntactic sugar, useful when writing DSLs</p>
+				<div class="fragment fade-up">
+					<br><br><br><iframe class="zoom-in" style="height: 320px; width: 440px;" data-src="https://pl.kotl.in/ryceVQzK4"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h2>Data classes</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+data class Person(val firstName: String,
+                  val lastName: String)
+<span class="fragment fade-up">val me = Person("Jeroen", "Meys")</span></code></pre>
+				</div>
+				<p class="fragment fade-up">Main purpose is to hold data</p>
+			</section>
+
+			<section>
+				<h2>The compilers derives a lot for you</h2>
+				<p class="fragment fade-up"><code>equals()</code> / <code>hashCode()</code></p>
+				<p class="fragment fade-up"><code>toString()</code></p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+Person(firstName=Jeroen, lastName=Meys)
+</code></pre></div>
+				<p class="fragment fade-up"><code>destructuring support</code></p>
+				<p class="fragment fade-up"><code>copy()</code></p>
+			</section>
+
+			<section>
+				<h2>copy</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+// generated
+fun copy(firstName: String = this.firstName,
+         lastName: String = this.lastName)
+        = Person(firstName, lastName)
+
+<span class="fragment fade-up">val original = Person("Yannick", "De Turck")</span>
+<span class="fragment fade-up">val copyCat = original.copy(firstName = "Jeroen")</span></code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Destructuring</h2>
+				<div class="fragment fade-up">
+					<br><br><br><iframe class="zoom-in" style="height: 260px; width: 400px;" data-src="https://pl.kotl.in/S1VbsGzK4"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h2>Also useful with function results</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+fun generatePair() = Pair(1, 2)
+
+<span class="fragment fade-up">val (val1, val2) = generatePair()</span>
+<span class="fragment fade-up">println("val1=$val1, val2=$val2")</span></code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>... and maps</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+for ((key, value) in map) {
+    ...
+}</code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Open modifier and inheritance</h2>
+				<p class="fragment fade-up">Classes are by default final</p>
+				<p class="fragment fade-up">Use the <code>open</code> modifier to allow inheriting it</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+open class Animal {
+    fun run() = println("Running...")
+    open fun makeSound() = println("Herp")
+}
+<span class="fragment fade-up">class Cat : Animal() {
+    override fun makeSound() = println("Mijauwkes")
+}</span></code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Combining properties between parent and child</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+open class Animal(val name: String)
+
+<span class="fragment fade-up">class Cat(name: String) : Animal(name) {
+    constructor(name: String, hasFur: Boolean) : this(name) {
+        println("Cat ${if (hasFur) "has" else "doesn't have"} fur")
+    }
+}</span>
+
+<span class="fragment fade-up">val cat = Cat("Mr. Bigglesworth", hasFur = true)</span></code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Sealed modifier</h2>
+				<div class="fragment fade-up">
+					<br><br><br><iframe class="zoom-in" style="height: 320px; width: 440px;" data-src="https://pl.kotl.in/SyQQAzfKN"></iframe>
+				</div>
+				<p class="fragment fade-up">Representing restricted class hierarchies</p>
+				<p class="fragment fade-up">Subclasses must be located in the same file</p>
+
+				<aside class="notes">
+					<p>They are in a sense an extension of enums</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>Object</h2>
+				<p class="fragment fade-up">Singleton</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+object MySingleton {
+    fun foo() {
+        println("Hi")
+    }
+}</code></pre>
+				</div>
+
+				<aside class="notes">
+					<p>Static functions</p>
+					<p>Objects can implement interfaces</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>Companion object</h2>
+				<p class="fragment fade-up">Special object inside a class</p>
+				<p class="fragment fade-up">Can extend classes and interfaces</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+class MyClass {
+    <span class="fragment fade-up">companion object Factory {
+        fun create(): MyClass = MyClass()
+    }</span>
+}
+
+<span class="fragment fade-up">val instance = MyClass.create()</span></code></pre>
+				</div>
+
+				<aside class="notes">
+					<p>Elegantly express the static part of a class</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>Tuples</h2>
+				<p class="fragment fade-up">Only Pair and Triple available</p>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+val pair = Pair("foo", "bar")
+<span class="fragment fade-up">val triple = Triple("pen", "pineapple", "applepen")</span></code></pre>
+				</div>
+				<p class="fragment fade-up">Data classes should be used if you want a function to return more values</p>
+			</section>
+		</section>
+
+		<!-- Interfaces -->
+		<section>
+			<section data-background="#DF6F0C">
+				<h2 style="color: #fff;">Interfaces</h2>
+			</section>
+
+			<section>
+				<h2>Defining an interface</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+interface SomeInterface {
+    fun foo()
+}</code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Implementing an interface</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+class Child<span class="fragment fade-up"> : SomeInterface</span> {
+    <span class="fragment fade-up">override fun foo() {
+        println("Hi")
+    }</span>
+}</code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Properties in interfaces</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+interface SomeInterface {
+    <span class="fragment fade-up">val prop: Int // abstract property</span>
+    <span class="fragment fade-up">val propWithImplementation: String get() = "foo" + prop
+}</span>
+
+<span class="fragment fade-up">class Child : SomeInterface {
+    override val prop: Int = 29
+}</span></code></pre>
+				</div>
+
+				<aside class="notes">
+					<p>Property can be abstract or an implementation can be provided for accessors</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>Enums</h2>
+				<div class="fragment fade-up">
+                    <pre><code class="kotlin" data-noescape data-trim>
+enum class Directions { UP, DOWN, LEFT, RIGHT }</code></pre>
+				</div>
+			</section>
+
+			<!--<section>-->
+				<!--<h2>Extension properties</h2>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--val &lt;T&gt; List&lt;T&gt;.lastIndex: Int get() = size - 1-->
+
+<!--<span class="fragment fade-up">val numbers = listOf(1, 2, 3)</span>-->
+<!--<span class="fragment fade-up">println(numbers.lastIndex) // 2</span></code></pre>-->
+				<!--</div>-->
+				<!--<p class="fragment fade-up">Doesn’t actually insert members into classes</p>-->
+				<!--<p class="fragment fade-up">Initialisers ("setters”) are not allowed</p>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--val String.foo = 1 <span class="fragment fade-up">// ❌ compiler error</span></code></pre>-->
+				<!--</div>-->
+			<!--</section>-->
+		</section>
+
+		<!--&lt;!&ndash; Lambda expressions &ndash;&gt;-->
+		<!--<section>-->
+			<!--<section data-background="#DF6F0C">-->
+				<!--<h2 style="color: #fff;">Lambda expressions</h2>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Lambda expressions</h2>-->
+				<!--<p class="fragment fade-up">An anonymous function that can be passed or returned</p>-->
+				<!--<p class="fragment fade-up">Use <code>it</code> for shorter notation</p>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--// (String) -> Unit-->
+<!--val sayHello = { person: String ->-->
+    <!--println("$person says hi")-->
+<!--}-->
+<!--<span class="fragment fade-up">sayHello("Dan")</span>-->
+
+<!--<span class="fragment fade-up">list.map({ i: Int -> i + 1 })</span>-->
+<!--<span class="fragment fade-up">list.map { it + 1 }</span></code></pre>-->
+				<!--</div>-->
+
+				<!--<aside class="notes">-->
+					<!--<p>Always curly braces</p>-->
+				<!--</aside>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Multi-line Lambda expressions</h2>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--val incremented = list.map {-->
+    <!--println("Mapping some stuff!")-->
+    <!--it + 1-->
+<!--}</code></pre>-->
+				<!--</div>-->
+				<!--<p class="fragment fade-up">Last expression is the result</p>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Storing a lambda in a variable</h2>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--val isEven: (Int) -> Boolean = { i: Int -> i % 2 == 0}-->
+
+<!--<span class="fragment fade-up">list.filter(isEven)</span></code></pre>-->
+				<!--</div>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Lambda expressions on collections</h2>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--val people = listOf("ann", "john", "adelyn")-->
+<!--<span class="fragment fade-up">people-->
+    <!--.filter { it.startsWith("a") }</span>-->
+    <!--<span class="fragment fade-up">.sortedBy { it }</span>-->
+    <!--<span class="fragment fade-up">.map { it.toUpperCase() }</span>-->
+    <!--<span class="fragment fade-up">.forEach { println(it) }</span></code></pre>-->
+				<!--</div>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Type aliases</h2>-->
+				<!--<p class="fragment fade-up">Provide alternative names for existing types</p>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--typealias Names = List&lt;String&gt;-->
+
+<!--fun findNames(): Names = listOf("john", "dave")</code></pre>-->
+				<!--</div>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Higher order functions</h2>-->
+				<!--<p class="fragment fade-up">Function that takes functions as parameters, or returns a function</p>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--fun logDuration(func: () -> Unit) {-->
+    <!--<span class="fragment fade-up">val startTime = Date()</span>-->
+    <!--<span class="fragment fade-up">func()</span>-->
+    <!--<span class="fragment fade-up">val duration = Date().time - startTime.time</span>-->
+    <!--<span class="fragment fade-up">println("Action took $duration ms")</span>-->
+<!--}-->
+
+<!--<span class="fragment fade-up">logDuration { tenPushups() }</span></code></pre>-->
+				<!--</div>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Lambdas and memory usage</h2>-->
+				<!--<p class="fragment fade-up">Lambdas are anonymous classes so they need memory</p>-->
+				<!--<p class="fragment fade-up">Memory allocations and virtual calls introduce runtime overhead.</p>-->
+				<!--<p class="fragment fade-up">Lambdas can be inlined to avoid performance overhead</p>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--inline fun inlineFunction(block: () -> Unit) = block()-->
+
+<!--<span class="fragment fade-up">function { println("foo") }</span>-->
+<!--<span class="fragment fade-up">inlineFunction { println("foo") }</span></code></pre>-->
+				<!--</div>-->
+				<!--<p class="fragment fade-up">An inline function gets copied to the call-site</p>-->
+
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Any downside...?</h2>-->
+				<!--<p class="fragment fade-up">More code is being generated</p>-->
+				<!--<p class="fragment fade-up">Don’t inline large functions</p>-->
+				<!--<p class="fragment fade-up">An inline function can’t call itself or any other inline function that calls the function</p>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Predefined inline functions</h2>-->
+				<!--<p class="fragment fade-up"><code>let</code></p>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--// Calls the function on the argument if not null-->
+<!--<span class="fragment fade-up">val p: Person? = Person("John")</span>-->
+<!--<span class="fragment fade-up">p?.let { println(it) }</span></code></pre>-->
+				<!--</div>-->
+				<!--<p class="fragment fade-up"><code>takeIf</code></p>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--// returns the object if it satisfies the predicate-->
+<!--<span class="fragment fade-up">val number = 6</span>-->
+<!--<span class="fragment fade-up">number.takeIf { it > 5 }</span></code></pre>-->
+				<!--</div>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>More examples</h2>-->
+				<!--<p class="fragment fade-up"><code>takeUnless</code></p>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--// returns the object if it doesn’t satisfy the predicate-->
+<!--<span class="fragment fade-up">number.takeUnless { it > 5 }</span></code></pre>-->
+				<!--</div>-->
+				<!--<p class="fragment fade-up"><code>Repeat</code></p>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--// repeat an action x times-->
+<!--<span class="fragment fade-up">repeat(3) {-->
+    <!--println("High five!")-->
+<!--}</span></code></pre>-->
+				<!--</div>-->
+			<!--</section>-->
+		<!--</section>-->
+
+		<!--&lt;!&ndash;Java interoperability&ndash;&gt;-->
+		<!--<section>-->
+			<!--<section data-background="#DF6F0C">-->
+				<!--<h2 style="color: #fff;">Java interoperability</h2>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Adding Kotlin to your project</h2>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="xml" data-noescape data-trim>-->
+<!--&lt;dependencies&gt;-->
+    <!--&lt;dependency&gt;-->
+        <!--&lt;groupId&gt;org.jetbrains.kotlin&lt;/groupId&gt;-->
+        <!--&lt;artifactId&gt;kotlin-stdlib&lt;/artifactId&gt;-->
+        <!--&lt;version&gt;${kotlin.version}&lt;/version&gt;-->
+    <!--&lt;/dependency&gt;-->
+<!--&lt;/dependencies&gt;</code></pre>-->
+				<!--</div>-->
+				<!--<p class="fragment fade-up">Starting from JDK6</p>-->
+				<!--<p class="fragment fade-up">In a Java/Kotlin project you’ll have two <code>src</code> folders</p>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Calling Java code from Kotlin</h2>-->
+				<!--<p class="fragment fade-up">Java code can be called in a natural way</p>-->
+				<!--<p class="fragment fade-up">Getters/setters are represented as properties in Kotlin</p>-->
+				<!--<p class="fragment fade-up"><code>void</code> is mapped to <code>Unit</code></p>-->
+				<!--<p class="fragment fade-up">Collection types may be read-only or mutable in Kotlin</p>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Java types are mapped to Kotlin types at compile time</h2>-->
+				<!--<div>-->
+					<!--<img class="fragment fade-up" src="img/type-mapping-1.png"/>-->
+					<!--<img class="fragment fade-up" src="img/type-mapping-2.png"/>-->
+					<!--<img class="fragment fade-up" src="img/type-mapping-3.png"/>-->
+				<!--</div>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Null safety</h2>-->
+				<!--<div>-->
+					<!--<p class="fragment fade-up">Any reference in Java may be null...</p>-->
+					<!--<p class="fragment fade-up">No nullability errors at compile time when a method is being called</p>-->
+					<!--<p class="fragment fade-up">The compiler does its best to avoid nulls</p>-->
+					<!--<p class="fragment fade-up">There are best practices such as using <code>@NotNull</code></p>-->
+				<!--</div>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Calling Kotlin code from Java</h2>-->
+				<!--<div>-->
+					<!--<p class="fragment fade-up">Properties are compiled to a getter/setter and private field</p>-->
+					<!--<p class="fragment fade-up">Package-level functions are compiled into static methods of a Java class based on filename</p>-->
+					<!--<p class="fragment fade-up">A lot of conversion is done automatically</p>-->
+					<!--<p class="fragment fade-up">Expose properties as fields via <code>@JvmField</code></p>-->
+				<!--</div>-->
+			<!--</section>-->
+		<!--</section>-->
+
+		<!--&lt;!&ndash; Coroutines &ndash;&gt;-->
+		<!--<section>-->
+			<!--<section data-background="#DF6F0C">-->
+				<!--<h2 style="color: #fff;">Coroutines</h2>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Asynchronous, non-blocking programming</h2>-->
+				<!--<p class="fragment fade-up">Rich library for coroutines developed by JetBrains</p>-->
+				<!--<p class="fragment fade-up">Light-weight threads</p>-->
+				<!--<p class="fragment fade-up">Logic can be expressed sequentially whereas the underlying implementation figures out the asynchrony</p>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Example</h2>-->
+				<!--<div class="fragment fade-up">-->
+                    <!--<pre><code class="kotlin" data-noescape data-trim>-->
+<!--suspend fun temperatureIn(city: String): Int {-->
+    <!--delay(1000)-->
+    <!--return Random().nextInt(30)-->
+<!--}-->
+
+<!--<span class="fragment fade-up">val ams = async { temperatureIn("Amsterdam") }</span>-->
+<!--<span class="fragment fade-up">val zrh = async { temperatureIn("Zurich") }</span>-->
+<!--<span class="fragment fade-up">println("AMS: ${ams.await()} ZRH: ${zrh.await()}")</span></code></pre>-->
+				<!--</div>-->
+
+				<!--<aside class="notes">-->
+					<!--<p>A method marked <code>suspend</code> can be run within a coroutine that can suspend it without blocking a Thread</p>-->
+					<!--<p><code>async</code>: To start a coroutine at least one suspending function is required</p>-->
+					<!--<p><code>await</code>: suspends the coroutine until some computation is done and returns the result</p>-->
+				<!--</aside>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Not a new concept</h2>-->
+				<!--<p class="fragment fade-up"><code>async</code>/<code>await</code> in C#, ECMAScript</p>-->
+				<!--<p class="fragment fade-up">Channels and select in Go</p>-->
+				<!--<p class="fragment fade-up">Generators/yield in C# and Python</p>-->
+				<!--<p class="fragment fade-up">Kotlin also supports channels and actors</p>-->
+
+				<!--<aside class="notes">-->
+				<!--</aside>-->
+			<!--</section>-->
+		<!--</section>-->
+
+		<!--&lt;!&ndash; Kotlin for Android development &ndash;&gt;-->
+		<!--<section>-->
+			<!--<section data-background="#DF6F0C">-->
+				<!--<h2 style="color: #fff;">Kotlin for Android development</h2>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Kotlin for Android development</h2>-->
+				<!--<p class="fragment fade-up">Fully compatible with JDK 6</p>-->
+				<!--<p class="fragment fade-up">Runs as fast as an equivalent Java one</p>-->
+				<!--<p class="fragment fade-up">Very compact runtime library (&lt; 100KB added to <code>.apk</code>)</p>-->
+				<!--<p class="fragment fade-up">Incremental builds are usually as fast or faster than with Java</p>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<img src="img/apps-written-in-kotlin.png"/>-->
+			<!--</section>-->
+		<!--</section>-->
+
+		<!--&lt;!&ndash; Kotlin for JavaScript development &ndash;&gt;-->
+		<!--<section>-->
+			<!--<section data-background="#DF6F0C">-->
+				<!--<h2 style="color: #fff;">Kotlin for JavaScript development</h2>-->
+			<!--</section>-->
+
+			<!--<section>-->
+				<!--<h2>Kotlin for JavaScript development</h2>-->
+				<!--<p class="fragment fade-up">Kotlin compiler generates normal JavaScript classes, functions and properties</p>-->
+				<!--<p class="fragment fade-up">The files are imported in your HTML page</p>-->
+				<!--<p class="fragment fade-up">Kotlin creates an object that contains all Kotlin declarations from the current module</p>-->
+			<!--</section>-->
+		<!--</section>-->
+
+		<!-- Getting started -->
+		<section>
+			<section data-background="#DF6F0C">
+				<h2 style="color: #fff;">Getting started</h2>
+			</section>
+
+			<section>
+				<h2>Setting up</h2>
+				<p class="fragment fade-up">IntelliJ: out-of-the-box support</p>
+				<p class="fragment fade-up">Eclipse: install Kotlin plugin from marketplace</p>
+				<p class="fragment fade-up">Android Studio: out-of-the-box support (Studio 3.0+)</p>
+				<p class="fragment fade-up">Command line: <code>$ brew install kotlin</code></p>
+			</section>
+
+			<section>
+				<h2>Java vs Kotlin</h2>
+				<img src="img/lawnmower-java.jpg"/>
+				<img src="img/lawnmower-kotlin.jpg" style="width: auto; height: 350px"/>
+			</section>
+
+			<section>
+				<h2>Most loved features</h2>
+				<img src="img/kotlin-most-loved-features.jpg" style="height: 75%; width: 75%;"/>
+				<div style="font-size: 16px">Source: <a href="https://twitter.com/brianegan/status/1014897830337695744" target="_blank">https://twitter.com/brianegan/status/1014897830337695744</a></div>
+			</section>
+
+			<section>
+				<h2>Reference</h2>
+				<p class="fragment fade-up">Reference: <a href="http://kotlinlang.org/docs/reference/" target="_blank">http://kotlinlang.org/docs/reference/</a></p>
+				<p class="fragment fade-up">Tutorials: <a href="http://kotlinlang.org/docs/tutorials/" target="_blank">http://kotlinlang.org/docs/tutorials/</a></p>
+			</section>
+		</section>
+
+		<section>
+			<section data-background="#DF6F0C">
+				<h2 style="color: #fff;">Quiz</h2>
+			</section>
+
+			<section>
+				<h2>Question 1</h2>
+				<div class="fragment fade-up">
+					<br><br><br><iframe class="zoom-in" style="height: 320px; width: 440px;" data-src="https://pl.kotl.in/S1HW5vQFV"></iframe>
+				</div>
+			</section>
+
+			<section><img src="img/serious.jpg" alt=""></section>
+
+			<section>
+				<h2>Question 2</h2>
+				<div class="fragment fade-up">
+					<br><br><br><iframe class="zoom-in" style="height: 320px; width: 440px;" data-src="https://pl.kotl.in/B1MfsPmK4"></iframe>
+				</div>
+			</section>
+
+			<section><img src="img/table-flip.gif" alt=""></section>
+
+			<section>
+				<h2>Question 3</h2>
+				<div class="fragment fade-up">
+					<br><br><br><iframe class="zoom-in" style="height: 320px; width: 440px;" data-src="https://pl.kotl.in/SkPBfdQtE"></iframe>
+				</div>
+			</section>
+		</section>
+
+		<section>
+			<h2>Questions?</h2>
+		</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			},
+					// Speaker notes
+					{
+						src: 'plugin/notes/notes.js',
+						async: true
+					});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+.zoom-in {
+	transform: scale(1.8);
+	font-smooth: none;
+	overflow: hidden;
+}
+
+#header-left {
+	position: absolute;
+	top: 1em;
+	left: 1em;
+}
+
+#header-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#footer-left {
+	position: absolute;
+	bottom: 2em;
+	left: 1em;
+	font-size: 0.75em;
+}
